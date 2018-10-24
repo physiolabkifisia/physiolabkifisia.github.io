@@ -9,8 +9,6 @@ var slides;
 var dots;
 
 function showSlides(n) {
-	
-
   var i;
   slides = document.getElementsByClassName("mySlides");
   dots = document.getElementsByClassName("dot");
@@ -24,6 +22,8 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
+
+  setTimeout(plusSlides, 5000);
 }
 
 // Next/previous controls
@@ -31,6 +31,9 @@ function plusSlides(n) {
 	if (!slides || !dots) {
 		return;
 	};
+    if (!n)
+	showSlides(slideIndex += 1);
+	else
 	showSlides(slideIndex += n);
 }
 
@@ -40,6 +43,9 @@ function currentSlide(n) {
 		setTimeout(showSlides(1), 1000);
 		return;
 	};
+    if (!n)
+	showSlides(slideIndex = 1);
+	else
 	showSlides(slideIndex = n);
 
 }
