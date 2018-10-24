@@ -25,7 +25,7 @@ body {
 
 	background-color: green; /*for compatibility with older browsers*/
 	
-	background-image: linear-gradient(green,lightgreen);
+	 background-image: linear-gradient(green,lightgreen);
 	/* background-image: linear-gradient(rgb(140,105,30), rgb(100,250,50));*/
 
 	/* text styles */
@@ -55,8 +55,9 @@ body {
 }
 
 .glass:hover{
-	background: linear-gradient(rgb(140,105,30), rgb(100,250,50));
+	/*background: linear-gradient(#073,#0fa);*/
 	/*background: linear-gradient(green,lightgreen);*/
+	background: linear-gradient(rgb(140,105,30), rgb(100,250,50));
 }
 
 /******************************************************************************/
@@ -316,6 +317,51 @@ body {
     display: flex;
     width: 100%;
 	min-height: 600px;
+}
+
+/******************************************************************************/
+
+ul, #myUL, #myUL1 {
+  list-style-type: none;
+  font-size: 24px;
+  background: rgba(255,255,255,0);
+}
+
+.nested {
+  display: none;
+  background: rgba(255,255,255,0);
+}
+
+.active {
+  display: block;
+}
+
+.mb{
+  color: rgb(0,80,0);
+  font-weight: bold;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+  letter-spacing: 2px;
+  color: rgb(80,0,0);
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
 }
 
 /******************************************************************************/
