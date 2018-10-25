@@ -70,11 +70,13 @@ var dt = 5;
 var gravity = 9.8;
 var ball;
 var speed = 0;
+var accel = 0.050;
 var curtop = 200;
+var bottom = 600;
 
-function moveBall(val) {
+function moveBall(dis) {
 	//alert("top=" + ball.style.top + "  val="+val);
-	curtop += val/4;
+	curtop += dis;
 	ball.style.top = curtop + "px";
 }
 
@@ -86,32 +88,28 @@ function update () {
 		return;
 	};
 	
-	/*
-	if (curtop > 500) {
-		//alert(speed);
-		speed = speed * -1;
-	} else if (curtop < 200) {
-		curtop = 200;
+	//alert("speed="+speed+"   curtop="+curtop);	
+	if (!speed)
 		speed = 0;
-	}
-	*/
+
+	speed += accel;
+	speed = Math.round(speed*1000)/1000;
 	
-	if (curtop > 500 && Math.abs(speed) < 0.4) {
-		//alert("why speed="+speed);
-		curtop = 500;
+	if (Math.abs(curtop - bottom)<=1 && Math.abs(speed) < accel) { // down coalision with slow speed
+		curtop = bottom;
 		speed = 0;
 		return;
-	}
-	
-	if (curtop >= 500) {
-		//alert(speed);
+	} 
+	else if (curtop > bottom && Math.abs(speed) >= accel) { // down coalision with speed
 		speed = speed - 0.2;
 		speed = speed * -1;
-	} else {
-		speed += gravity * dt / 1000;
+	} 
+	else if (curtop < bottom && Math.abs(speed) < accel) {
+		speed = speed * -1;
 	}
 	
-	moveBall(speed);
+
+	moveBall(speed/4);
 	setTimeout(update, dt);
 	
 }
