@@ -305,6 +305,7 @@ body {
 /* Left and right column */
 .sidecolumn{
     min-width: 300px;
+	max-width: 400px;
 	background-image: linear-gradient(to right, rgba(40,40,40,0.5), rgba(200,200,200,0.5));
 	display:table-cell;
 }
