@@ -119,7 +119,7 @@ function load_page () {
 	var page = path.split("/").pop();
 	//alert( page );
 	
-	if (page=="index.html") {
+	if (page=="index.html" || page=="technical.html") {
 		currentSlide(1);
 		//myMap();
 	}
