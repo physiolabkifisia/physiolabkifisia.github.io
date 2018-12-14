@@ -66,13 +66,14 @@ var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 /******************************************************************************/
 
-var dt = 5;
-var gravity = 9.8;
 var ball;
-var speed = 0;
-var accel = 0.050;
-var curtop = 200;
-var bottom = 600;
+var dt      = 5;
+var gravity = 9.8;
+var speed   = 0;
+var accel   = 0.050;
+var curtop  = 200;
+var bottom  = 600;
+var bound   = 0.2;
 
 function moveBall(dis) {
 	//alert("top=" + ball.style.top + "  val="+val);
@@ -95,21 +96,16 @@ function update () {
 	speed += accel;
 	speed = Math.round(speed*1000)/1000;
 	
-	if (Math.abs(curtop - bottom)<=1 && Math.abs(speed) < accel) { // down coalision with slow speed
+	if (curtop >= bottom && speed > bound) {
+		speed = speed - bound;
+		speed = speed * -1;
+	} else if (curtop >= bottom) {
 		curtop = bottom;
 		speed = 0;
 		return;
-	} 
-	else if (curtop > bottom && Math.abs(speed) >= accel) { // down coalision with speed
-		speed = speed - 0.2;
-		speed = speed * -1;
-	} 
-	else if (curtop < bottom && Math.abs(speed) < accel) {
-		speed = speed * -1;
-	}
-	
+	}	
 
-	moveBall(speed/4);
+	moveBall(speed);
 	setTimeout(update, dt);
 	
 }
