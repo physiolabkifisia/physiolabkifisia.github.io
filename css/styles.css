@@ -153,7 +153,22 @@ body {
 	vertical-align: top;
 	text-align:justify;
 	margin-left: auto;
-    margin-right: auto;
+    	margin-right: auto;
+}
+
+.pagetext {
+    /*background-color: #333;*/
+	padding: 10px;
+	max-width:800px;
+	max-height:250px;
+	vertical-align: top;
+	text-align:justify;
+	margin-left: auto;
+    	margin-right: auto;
+	font-family: 'Courier New';
+	font-size: 18px;
+	padding: 20px;
+	hyphens: auto;
 }
 
 .footerpic {
@@ -335,7 +350,7 @@ body {
 }
 
 .sidep{
-	font-family: "Times New Roman", Times, serif;
+	font-family: 'Arial';
 	font-size: 18px;
 	text-align: justify;
 	padding: 20px;
