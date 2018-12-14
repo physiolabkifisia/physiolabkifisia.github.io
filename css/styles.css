@@ -167,6 +167,7 @@ body {
     	margin-right: auto;
 	font-family: 'Courier New';
 	font-size: 18px;
+	font-weight: bold;
 	padding: 20px;
 	hyphens: auto;
 }
@@ -180,7 +181,7 @@ body {
 	vertical-align: middle;
 	text-align:center;
 	margin-left: auto;
-    margin-right: auto;
+    	margin-right: auto;
 	display:inline-block;
 }
 
@@ -351,7 +352,7 @@ body {
 
 .sidep{
 	font-family: 'Arial';
-	font-size: 18px;
+	font-size: 14px;
 	text-align: justify;
 	padding: 20px;
 	hyphens: auto;
